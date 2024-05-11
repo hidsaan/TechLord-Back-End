@@ -3,11 +3,9 @@ const cloudinary= require("../utils/cloudinary")
 
 const addProductController = async (req, res) => {
     try {
-        const { title, description, price } = req.body;
+        const { title, description, price, image } = req.body;
 
         if(title && description && price !==""){
-
-            const image = req.file.path;
 
             const upload = await cloudinary.uploader.upload(image, {
                 folder: "TechLord Admin Products",
